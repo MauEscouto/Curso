@@ -10,10 +10,11 @@ class ContaCorrente{
     sacar(valor){
         if(this.saldo >= valor)
             this.saldo -= valor;
+            return valor;
     }
     depositar(valor){
-        if(valor > 0)
-            this.saldo += valor;
+        if(valor <= 0)return; //se o if tem só uma linha, nao precisa de chaves
+        this.saldo += valor;    // se o valor for menor que 0, executa o return que já para a função
     }
 }
 
@@ -33,6 +34,8 @@ contaCorrenteRicardo.agencia = 1001;
 contaCorrenteRicardo.depositar(100)
 contaCorrenteRicardo.depositar(100)
 contaCorrenteRicardo.depositar(100)
-contaCorrenteRicardo.sacar(50);
 
-console.log(contaCorrenteRicardo.saldo);
+const ValorSacado = contaCorrenteRicardo.sacar(50);
+console.log(ValorSacado);
+
+console.log(contaCorrenteRicardo);
